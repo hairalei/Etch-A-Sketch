@@ -7,20 +7,33 @@
     <title>Etch-A-Sketch</title>
 
     <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&family=Yellowtail&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <div class="container">
-      <h1>Etch-A-Sketch</h1>
+      <h1 class="header">Etch-A-Sketch</h1>
       <div class="canvas"></div>
       <div class="btns">
-        <button class="btn btn--circle">Draw</button>
+        <button class="btn--circle">Draw</button>
         <input type="color" name="color" id="color" />
-        <button class="btn btn--rainbow"></button>
-        <button class="btn btn--eraser"></button>
-        <input type="range" name="range" id="range" />
-        <input type="checkbox" name="gridline" id="gridlline" />
-        <label for="gridline">Gridline</label>
-        <button class="btn btn--circle">Clear</button>
+        <button class="btn btn--rainbow">Rainbow</button>
+        <button class="btn btn--eraser">Eraser</button>
+
+        <div class="range-div">
+          <label for="range">16x16</label>
+          <input type="range" name="range" id="range" />
+          <div class="gridline-div">
+            <input type="checkbox" name="gridline" id="gridline" />
+            <label for="gridline">Gridline</label>
+          </div>
+        </div>
+
+        <button class="btn--circle">Clear</button>
       </div>
     </div>
 
