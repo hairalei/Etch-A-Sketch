@@ -9,6 +9,36 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <div class="container">
+      <h1>Etch-A-Sketch</h1>
+      <div class="canvas"></div>
+      <div class="btns">
+        <button class="btn btn--circle">Draw</button>
+        <input type="color" name="color" id="color" />
+        <button class="btn btn--rainbow"></button>
+        <button class="btn btn--eraser"></button>
+        <input type="range" name="range" id="range" />
+        <input type="checkbox" name="gridline" id="gridlline" />
+        <label for="gridline">Gridline</label>
+        <button class="btn btn--circle">Clear</button>
+      </div>
+    </div>
+
+    <footer>
+      Copyright &copy; <span>2025</span> hairalei
+      <a class="git" href="https://github.com/hairalei">
+        <ion-icon class="git-logo" name="logo-github"></ion-icon>
+      </a>
+    </footer>
+
     <script src="script.js"></script>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
   </body>
 </html>
