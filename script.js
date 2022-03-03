@@ -12,6 +12,7 @@ const gridline = document.querySelector("#gridline");
 
 btnClear.addEventListener("click", function () {
   canvas.innerHTML = "";
+  updateGrid();
 });
 
 range.addEventListener("input", function () {
@@ -37,6 +38,7 @@ function updateGrid() {
     `repeat(${range.value}, 1fr)`
   );
   canvas.style.setProperty("grid-template-rows", `repeat(${range.value}, 1fr)`);
+
   for (let i = 0; i < range.value * range.value; i++) {
     const div = document.createElement("div");
     div.classList.add("square");
@@ -45,3 +47,23 @@ function updateGrid() {
 }
 
 updateGrid();
+
+let isDrawing = false;
+const divSquare = document.querySelector("div");
+
+divSquare.addEventListener("mousedown", function (e) {
+  isDrawing = true;
+  e.target.classList.replace("square", "color");
+  console.log(e);
+});
+divSquare.addEventListener("mousemove", function (e) {
+  if (isDrawing) {
+    e.target.classList.replace("square", "color");
+    console.log("sdf");
+  }
+});
+divSquare.addEventListener("mouseup", function (e) {
+  if (isDrawing) {
+    isDrawing = false;
+  }
+});
