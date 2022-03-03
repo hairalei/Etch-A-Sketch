@@ -62,6 +62,11 @@ body {
   border: 0.5px solid #000;
 }
 
+.color {
+  background-color: #333;
+  border: 0.5px solid #000;
+}
+
 .btns {
   display: flex;
   align-items: center;
