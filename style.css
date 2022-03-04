@@ -24,7 +24,7 @@ body {
 }
 
 .container {
-  margin: 1rem 0;
+  margin: auto 0;
   height: 68rem;
   width: 68rem;
   background-color: #e84747;
@@ -68,12 +68,14 @@ body {
 .btns {
   display: flex;
   align-items: center;
-  gap: 2rem;
+  gap: 1rem;
+  padding-bottom: 1rem;
+  letter-spacing: -0.05rem;
 }
 
 #color {
-  width: 6rem;
-  height: 3.5rem;
+  width: 8rem;
+  height: 4rem;
 }
 
 input[type="color"] {
@@ -91,16 +93,16 @@ input[type="color"]::-webkit-color-swatch {
   color: inherit;
   font-size: 1.8rem;
   display: inline-block;
-  padding: 0.5rem 1rem;
+  padding: 1rem 2rem;
   border-radius: 1rem;
-  box-shadow: 0 0.2rem 1rem rgba(0, 0, 0, 0.2);
-  box-sizing: co;
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
 }
 
 .btn,
 .btn--circle {
   border: none;
   transition: all 0.2s ease-out;
+  letter-spacing: -0.05rem;
 }
 
 .btn--circle {
