@@ -5,6 +5,9 @@ const btnDraw = document.querySelector(".btn--draw");
 const btnRainbow = document.querySelector(".btn--rainbow");
 const btnEraser = document.querySelector(".btn--eraser");
 const btnClear = document.querySelector(".btn--clear");
+const btnCircle = document.querySelector(".btn--circle");
+const button = document.querySelector("button");
+
 const color = document.querySelector(".color");
 const range = document.querySelector("#range");
 const rangeLabel = document.querySelector(".range-label");
@@ -13,6 +16,20 @@ const gridline = document.querySelector("#gridline");
 btnClear.addEventListener("click", function () {
   canvas.innerHTML = "";
   updateGrid();
+});
+
+btnEraser.addEventListener("click", function () {
+  btnEraser.classList.add("active");
+  btnDraw.classList.remove("active");
+
+  eraseGrid();
+});
+
+btnDraw.addEventListener("click", function () {
+  btnDraw.classList.add("active");
+  btnEraser.classList.remove("active");
+
+  drawGrid();
 });
 
 range.addEventListener("input", function () {
@@ -46,24 +63,48 @@ function updateGrid() {
   }
 }
 
-updateGrid();
+function drawGrid() {
+  let isDrawing = false;
+  const divSquare = document.querySelector("div");
 
-let isDrawing = false;
-const divSquare = document.querySelector("div");
-
-divSquare.addEventListener("mousedown", function (e) {
-  isDrawing = true;
-  e.target.classList.replace("square", "color");
-  console.log(e);
-});
-divSquare.addEventListener("mousemove", function (e) {
-  if (isDrawing) {
+  divSquare.addEventListener("mousedown", function (e) {
+    isDrawing = true;
     e.target.classList.replace("square", "color");
-    console.log("sdf");
-  }
-});
-divSquare.addEventListener("mouseup", function (e) {
-  if (isDrawing) {
-    isDrawing = false;
-  }
-});
+    console.log(e.type);
+  });
+  divSquare.addEventListener("mousemove", function (e) {
+    if (isDrawing) {
+      e.target.classList.replace("square", "color");
+      console.log("sdf");
+    }
+  });
+  divSquare.addEventListener("mouseup", function (e) {
+    if (isDrawing) {
+      isDrawing = false;
+    }
+  });
+}
+
+function eraseGrid() {
+  let isDrawing = false;
+  const divSquare = document.querySelector("div");
+
+  divSquare.addEventListener("mousedown", function (e) {
+    isDrawing = true;
+    e.target.classList.replace("color", "square");
+    console.log(e.type);
+  });
+  divSquare.addEventListener("mousemove", function (e) {
+    if (isDrawing) {
+      e.target.classList.replace("color", "square");
+      console.log("sdf");
+    }
+  });
+  divSquare.addEventListener("mouseup", function (e) {
+    if (isDrawing) {
+      isDrawing = false;
+    }
+  });
+}
+
+updateGrid();
