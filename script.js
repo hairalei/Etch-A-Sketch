@@ -178,7 +178,7 @@ function drawRainbow() {
       e.target.classList.contains("color") &&
       !btnEraser.classList.contains("active")
     ) {
-      e.target.style.backgroundColor = rgb;
+      e.target.style.backgroundColor = getRandomColor();
     }
     console.log(color.value);
     console.log(e.target);
@@ -192,7 +192,7 @@ function drawRainbow() {
         e.target.classList.contains("color") &&
         !btnEraser.classList.contains("active")
       ) {
-        e.target.style.backgroundColor = rgb;
+        e.target.style.backgroundColor = getRandomColor();
       }
 
       console.log(color.value);
@@ -205,4 +205,12 @@ function drawRainbow() {
       isDrawing = false;
     }
   });
+}
+
+function getRandomColor() {
+  const randomR = Math.floor(Math.random() * 256) + 1;
+  const randomG = Math.floor(Math.random() * 256) + 1;
+  const randomB = Math.floor(Math.random() * 256) + 1;
+
+  return `rgb(${randomR}, ${randomG}, ${randomB})`;
 }
