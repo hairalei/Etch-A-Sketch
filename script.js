@@ -11,7 +11,6 @@ const btn = document.querySelector(".btn");
 const colorPicker = document.querySelector("#color");
 const range = document.querySelector("#range");
 const rangeLabel = document.querySelector(".range-label");
-const gridline = document.querySelector("#gridline");
 
 let currentMode = "color";
 
@@ -39,7 +38,7 @@ function getRandomColor() {
 }
 
 function colorGrid(e) {
-  console.log(e.target.classList.value);
+  // console.log(e.target.checked);
   if (currentMode === "color" && e.target.classList.value === "color") {
     e.target.style.backgroundColor = colorPicker.value;
   } else if (
@@ -117,3 +116,4 @@ divSquare.addEventListener("mouseup", function (e) {
 
 //initialize
 updateGrid();
+btnColor.classList.add("active");
