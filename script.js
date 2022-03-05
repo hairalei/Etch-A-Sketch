@@ -8,7 +8,8 @@ const btnClear = document.querySelector(".btn--clear");
 const btnCircle = document.querySelector(".btn--circle");
 const button = document.querySelector("button");
 
-const color = document.querySelector(".color");
+const colorPicker = document.querySelector("#color");
+const colorClass = document.querySelector(".color");
 const range = document.querySelector("#range");
 const rangeLabel = document.querySelector(".range-label");
 const gridline = document.querySelector("#gridline");
@@ -70,14 +71,33 @@ function drawGrid() {
   divSquare.addEventListener("mousedown", function (e) {
     isDrawing = true;
     e.target.classList.replace("square", "color");
-    console.log(e.type);
+
+    if (
+      e.target.classList.contains("color") &&
+      !btnEraser.classList.contains("active")
+    ) {
+      e.target.style.backgroundColor = color.value;
+    }
+    console.log(color.value);
+    console.log(e.target);
   });
+
   divSquare.addEventListener("mousemove", function (e) {
     if (isDrawing) {
       e.target.classList.replace("square", "color");
-      console.log("sdf");
+
+      if (
+        e.target.classList.contains("color") &&
+        !btnEraser.classList.contains("active")
+      ) {
+        e.target.style.backgroundColor = color.value;
+      }
+
+      console.log(color.value);
+      console.log(e.target);
     }
   });
+
   divSquare.addEventListener("mouseup", function (e) {
     if (isDrawing) {
       isDrawing = false;
@@ -91,15 +111,18 @@ function eraseGrid() {
 
   divSquare.addEventListener("mousedown", function (e) {
     isDrawing = true;
-    e.target.classList.replace("color", "square");
-    console.log(e.type);
+    e.target.style.backgroundColor = "#fff";
+
+    console.log(e.target);
   });
+
   divSquare.addEventListener("mousemove", function (e) {
     if (isDrawing) {
-      e.target.classList.replace("color", "square");
+      e.target.style.backgroundColor = "#fff";
       console.log("sdf");
     }
   });
+
   divSquare.addEventListener("mouseup", function (e) {
     if (isDrawing) {
       isDrawing = false;
@@ -108,3 +131,63 @@ function eraseGrid() {
 }
 
 updateGrid();
+
+function drawRainbow() {
+  let isDrawing = false;
+  let randomColor = Math.floor(Math.random() * 7) + 1;
+  const colorList = [
+    "red",
+    "orange",
+    "yellow",
+    "green",
+    "blue",
+    "indigo",
+    "violet",
+  ];
+  // let rgb = `rgb(${randomColor}, ${randomColor}, ${randomColor})`;
+  const divSquare = document.querySelector("div");
+
+  divSquare.addEventListener("mousedown", function (e) {
+    isDrawing = true;
+    e.target.classList.replace("square", "color");
+
+    if (
+      e.target.classList.contains("color") &&
+      !btnEraser.classList.contains("active")
+    ) {
+      e.target.style.backgroundColor = rgb;
+    }
+    console.log(color.value);
+    console.log(e.target);
+  });
+
+  divSquare.addEventListener("mousemove", function (e) {
+    if (isDrawing) {
+      e.target.classList.replace("square", "color");
+
+      if (
+        e.target.classList.contains("color") &&
+        !btnEraser.classList.contains("active")
+      ) {
+        e.target.style.backgroundColor = rgb;
+      }
+
+      console.log(color.value);
+      console.log(e.target);
+    }
+  });
+
+  divSquare.addEventListener("mouseup", function (e) {
+    if (isDrawing) {
+      isDrawing = false;
+    }
+  });
+}
+
+btnRainbow.addEventListener("click", function () {
+  btnDraw.classList.add("active");
+  btnRainbow.classList.add("active");
+  btnEraser.classList.remove("active");
+
+  drawRainbow();
+});
