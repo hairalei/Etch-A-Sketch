@@ -1,7 +1,7 @@
 "use strict";
 
 const canvas = document.querySelector(".canvas");
-const btnDraw = document.querySelector(".btn--draw");
+const btnColor = document.querySelector(".btn--draw");
 const btnRainbow = document.querySelector(".btn--rainbow");
 const btnEraser = document.querySelector(".btn--eraser");
 const btnClear = document.querySelector(".btn--clear");
@@ -21,14 +21,16 @@ btnClear.addEventListener("click", function () {
 
 btnEraser.addEventListener("click", function () {
   btnEraser.classList.add("active");
-  btnDraw.classList.remove("active");
+  btnColor.classList.remove("active");
+  btnRainbow.classList.remove("active");
 
   eraseGrid();
 });
 
-btnDraw.addEventListener("click", function () {
-  btnDraw.classList.add("active");
+btnColor.addEventListener("click", function () {
+  btnColor.classList.add("active");
   btnEraser.classList.remove("active");
+  btnRainbow.classList.remove("active");
 
   drawGrid();
 });
@@ -111,15 +113,31 @@ function eraseGrid() {
 
   divSquare.addEventListener("mousedown", function (e) {
     isDrawing = true;
-    e.target.style.backgroundColor = "#fff";
+    e.target.classList.replace("square", "color");
 
+    if (
+      e.target.classList.contains("color") &&
+      btnEraser.classList.contains("active")
+    ) {
+      e.target.style.backgroundColor = "#fff";
+    }
+    console.log(color.value);
     console.log(e.target);
   });
 
   divSquare.addEventListener("mousemove", function (e) {
     if (isDrawing) {
-      e.target.style.backgroundColor = "#fff";
-      console.log("sdf");
+      e.target.classList.replace("square", "color");
+
+      if (
+        e.target.classList.contains("color") &&
+        btnEraser.classList.contains("active")
+      ) {
+        e.target.style.backgroundColor = "#fff";
+      }
+
+      console.log(color.value);
+      console.log(e.target);
     }
   });
 
@@ -134,17 +152,19 @@ updateGrid();
 
 function drawRainbow() {
   let isDrawing = false;
-  let randomColor = Math.floor(Math.random() * 7) + 1;
-  const colorList = [
-    "red",
-    "orange",
-    "yellow",
-    "green",
-    "blue",
-    "indigo",
-    "violet",
-  ];
-  // let rgb = `rgb(${randomColor}, ${randomColor}, ${randomColor})`;
+  const randomR = Math.floor(Math.random() * 256) + 1;
+  const randomG = Math.floor(Math.random() * 256) + 1;
+  const randomB = Math.floor(Math.random() * 256) + 1;
+  // const colorList = [
+  //   "red",
+  //   "orange",
+  //   "yellow",
+  //   "green",
+  //   "blue",
+  //   "indigo",
+  //   "violet",
+  // ];
+  let rgb = `rgb(${randomR}, ${randomG}, ${randomB})`;
   const divSquare = document.querySelector("div");
 
   divSquare.addEventListener("mousedown", function (e) {
@@ -185,7 +205,7 @@ function drawRainbow() {
 }
 
 btnRainbow.addEventListener("click", function () {
-  btnDraw.classList.add("active");
+  btnColor.classList.remove("active");
   btnRainbow.classList.add("active");
   btnEraser.classList.remove("active");
 
