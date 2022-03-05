@@ -6,13 +6,16 @@ const btnRainbow = document.querySelector(".btn--rainbow");
 const btnEraser = document.querySelector(".btn--eraser");
 const btnClear = document.querySelector(".btn--clear");
 const btnCircle = document.querySelector(".btn--circle");
-const button = document.querySelector("button");
+const btn = document.querySelector(".btn");
 
-const colorPicker = document.querySelector("#color");
-const colorClass = document.querySelector(".color");
+// const colorPicker = document.querySelector("#color");
+// const colorClass = document.querySelector(".color");
 const range = document.querySelector("#range");
 const rangeLabel = document.querySelector(".range-label");
 const gridline = document.querySelector("#gridline");
+
+let currentMode = "color";
+let currentColor = "#000";
 
 btnClear.addEventListener("click", function () {
   canvas.innerHTML = "";
@@ -35,6 +38,14 @@ btnColor.addEventListener("click", function () {
   drawGrid();
 });
 
+btnRainbow.addEventListener("click", function () {
+  btnColor.classList.remove("active");
+  btnRainbow.classList.add("active");
+  btnEraser.classList.remove("active");
+
+  drawRainbow();
+});
+
 range.addEventListener("input", function () {
   let value = this.value;
   let area = value * value;
@@ -43,13 +54,13 @@ range.addEventListener("input", function () {
   updateGrid();
 });
 
-function createGrid() {
-  for (let i = 0; i < 256; i++) {
-    const div = document.createElement("div");
-    div.classList.add("square");
-    canvas.appendChild(grid);
-  }
-}
+// function createGrid() {
+//   for (let i = 0; i < 256; i++) {
+//     const div = document.createElement("div");
+//     div.classList.add("square");
+//     canvas.appendChild(grid);
+//   }
+// }
 
 function updateGrid() {
   canvas.innerHTML = "";
@@ -155,15 +166,7 @@ function drawRainbow() {
   const randomR = Math.floor(Math.random() * 256) + 1;
   const randomG = Math.floor(Math.random() * 256) + 1;
   const randomB = Math.floor(Math.random() * 256) + 1;
-  // const colorList = [
-  //   "red",
-  //   "orange",
-  //   "yellow",
-  //   "green",
-  //   "blue",
-  //   "indigo",
-  //   "violet",
-  // ];
+
   let rgb = `rgb(${randomR}, ${randomG}, ${randomB})`;
   const divSquare = document.querySelector("div");
 
@@ -203,11 +206,3 @@ function drawRainbow() {
     }
   });
 }
-
-btnRainbow.addEventListener("click", function () {
-  btnColor.classList.remove("active");
-  btnRainbow.classList.add("active");
-  btnEraser.classList.remove("active");
-
-  drawRainbow();
-});
