@@ -15,41 +15,43 @@
     />
   </head>
   <body>
-    <div class="container">
-      <h1 class="header">Etch-A-Sketch</h1>
-      <div class="canvas"></div>
-      <div class="btns">
-        <input type="color" name="color" id="color" />
-        <button class="btn btn--draw">Color</button>
-        <button class="btn btn--rainbow">Rainbow</button>
-        <button class="btn btn--eraser">Eraser</button>
+    <div class="body">
+      <div class="container">
+        <h1 class="header">Etch-A-Sketch</h1>
+        <div class="canvas"></div>
+        <div class="btns">
+          <input type="color" name="color" id="color" />
+          <button class="btn btn--draw">Color</button>
+          <button class="btn btn--rainbow">Rainbow</button>
+          <button class="btn btn--eraser">Eraser</button>
 
-        <div class="range-div">
-          <label for="range" class="range-label">16x16</label>
-          <input
-            type="range"
-            name="range"
-            id="range"
-            min="1"
-            max="64"
-            value="16"
-          />
-          <!-- <div class="gridline-div">
+          <div class="range-div">
+            <label for="range" class="range-label">16x16</label>
+            <input
+              type="range"
+              name="range"
+              id="range"
+              min="1"
+              max="64"
+              value="16"
+            />
+            <!-- <div class="gridline-div">
             <input type="checkbox" name="gridline" id="gridline" />
             <label for="gridline">Gridline</label>
           </div> -->
+          </div>
+
+          <button class="btn--circle btn--clear">Clear</button>
         </div>
-
-        <button class="btn--circle btn--clear">Clear</button>
       </div>
-    </div>
 
-    <footer>
-      Copyright &copy; <span>2025</span> hairalei
-      <a class="git" href="https://github.com/hairalei">
-        <ion-icon class="git-logo" name="logo-github"></ion-icon>
-      </a>
-    </footer>
+      <footer>
+        Copyright &copy; <span>2025</span> hairalei
+        <a class="git" href="https://github.com/hairalei">
+          <ion-icon class="git-logo" name="logo-github"></ion-icon>
+        </a>
+      </footer>
+    </div>
 
     <script src="script.js"></script>
     <script
