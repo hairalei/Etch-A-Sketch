@@ -114,16 +114,6 @@ divSquare.addEventListener("mouseup", function (e) {
   }
 });
 
-function touch(e) {
-  // e.preventDefault();
-  isDrawing = true;
-  e.target.classList.replace("square", "color");
-  colorGrid(e);
-}
-
-divSquare.ontouchstart = touch;
-divSquare.ontouchmove = touch;
-
 //initialize
 updateGrid();
 btnColor.classList.add("active");
