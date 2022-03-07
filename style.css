@@ -23,17 +23,23 @@ body {
   user-select: none;
 }
 
+.body {
+  margin: auto 0;
+}
+
 .container {
-  margin: 1rem auto;
+  /* margin: auto 0; */
   height: 68rem;
   width: 68rem;
   background-color: #e84747;
   border-radius: 8rem;
   box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.5);
+  margin-bottom: 0.5rem;
 
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
 }
 
 .header {
@@ -165,7 +171,6 @@ footer {
   justify-content: center;
   color: #555;
   letter-spacing: 0.3rem;
-  margin-bottom: 0.5rem;
 }
 
 footer span {
@@ -219,29 +224,17 @@ footer span {
   html {
     font-size: 55%;
   }
-
-  .container {
-    margin: 5rem auto;
-  }
 }
 
 @media (max-width: 600px) {
   html {
-    font-size: 45%;
-  }
-
-  .container {
-    margin: auto 0;
+    font-size: 50%;
   }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 550px) {
   html {
-    font-size: 35%;
-  }
-
-  .container {
-    margin: auto 0;
+    font-size: 40%;
   }
 
   .btns {
@@ -253,33 +246,21 @@ footer span {
   }
 }
 
-@media (max-width: 380px) {
+@media (max-width: 450px) {
   html {
-    font-size: 30%;
-  }
-
-  .container {
-    margin: auto 0;
+    font-size: 35%;
   }
 }
 
-@media (max-width: 320px) {
+@media (max-width: 380px) {
   html {
     font-size: 25%;
-  }
-
-  .container {
-    margin: auto 0;
   }
 }
 
 @media (max-width: 280px) {
   html {
     font-size: 20%;
-  }
-
-  .container {
-    margin: auto 0;
   }
 
   .btns {
